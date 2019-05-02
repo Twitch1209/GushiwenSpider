@@ -8,7 +8,12 @@
 import scrapy
 
 
-class GushiwenspiderItem(scrapy.Item):
+class MingshiItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    poetryName = scrapy.Field()
+    poetryDynasty = scrapy.Field()
+    poetryAuthor = scrapy.Field()
+    poetryBody = scrapy.Field()
+    poetryAnalysis = scrapy.Field()
     pass
