@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# written by twitch
 import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
