@@ -13,7 +13,6 @@ BOT_NAME = 'mingshi'
 
 SPIDER_MODULES = ['mingshi.spiders']
 NEWSPIDER_MODULE = 'mingshi.spiders'
-# change the download delay
 DOWNLOAD_DELAY = 0.25
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

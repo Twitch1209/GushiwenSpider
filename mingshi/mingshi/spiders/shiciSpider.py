@@ -9,15 +9,16 @@ from mingshi.items import MingshiItem
 class shiciSpider(CrawlSpider):
     name = 'mingshi'
     allowed_domains = ['www.shicimingju.com']
+    #start_urls = ['http://www.shicimingju.com/chaxun/zuozhe/1.html',
+    #              'http://www.shicimingju.com/chaxun/zuozhe/2.html',
+    #              ]
 
-    # use start_requests replace start_urls to crawl many urls
     def start_requests(self):
         urls = ['http://www.shicimingju.com/chaxun/zuozhe/'+str(i)+'.html'for i in range(1,13033)]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
-    # first rule to go to next page
-    # second rule to get every urls , callback function to deal with messages in every urls
+            # change 3A11111 to oth ers
     rules = (
         Rule(LinkExtractor(allow=('/chaxun/zuozhe/\d_\d+\.html'))),
         Rule(LinkExtractor(allow=('/chaxun/list/\d+\.html')), callback='extract_view_urls', follow=False),
@@ -26,7 +27,7 @@ class shiciSpider(CrawlSpider):
 
     def extract_view_urls(self, response):
         items = []
-        # define the fields for your item here like:
+
         item = MingshiItem()
         item['poetryName'] = response.xpath(
             '//div[@class="layui-container"]/div[@class="layui-row layui-col-space10"]/div[@class="layui-col-md8 layui-col-sm7"]/div[@class="shici-container www-shadow-card"]/h1/text()'
